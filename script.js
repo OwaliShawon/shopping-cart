@@ -20,7 +20,6 @@ function handleProductChange(product, isIncrease){
     }
     
     document.getElementById(product + '-price').innerText = '$' + priceTotal;
-
     calculateTotal();
 }
 
@@ -35,6 +34,12 @@ function calculateTotal(){
     const caseCount = getInputValue('case');
     const grandTotal = (phoneCount * 1219) + (caseCount * 59);
     document.getElementById('grand-total-price').innerText = '$' + grandTotal;
+
+    const tax = Math.round(grandTotal * .15);
+    document.getElementById('tax').innerText = '$' + tax;
+
+    const finalTotal = grandTotal + tax;
+    document.getElementById('final-total').innerText = '$' + finalTotal;
 }
 
 function getInputValue(product){
@@ -98,5 +103,3 @@ function getInputValue(product){
 //     document.getElementById('case-price').innerText = '$' + caseTotalPrice;
 //     // console.log(newCaseCount);
 // })
-
-
